@@ -1,0 +1,224 @@
+/* --- CSS VARIABELEN --- */
+:root {
+    --bg-black: #000000;
+    --socials-green: #144d33;
+    --project-teal: #1f8a70;
+    --bio-gray: #555555;
+    --frame-blue: #2a5a75;
+    --handwritten: 'Indie Flower', cursive;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-black);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: var(--handwritten);
+    color: white;
+    overflow: hidden;
+}
+
+.canvas {
+    width: 1200px;
+    height: 800px;
+    position: relative;
+}
+
+/* --- DECORATIEVE VORMEN --- */
+.lines {
+    position: absolute;
+    width: 220px;
+    height: 180px;
+    background: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 10px,
+            var(--project-teal) 10px,
+            var(--project-teal) 13px
+    );
+    z-index: 1;
+}
+
+.top-left { top: 20px; left: 100px; }
+.bottom-right { bottom: 20px; right: 280px; transform: rotate(180deg); }
+
+.mid-right-deco {
+    position: absolute;
+    top: 480px;
+    right: 50px;
+    width: 150px;
+    height: 120px;
+    background: repeating-linear-gradient(
+            -45deg,
+            transparent,
+            transparent 8px,
+            var(--frame-blue) 8px,
+            var(--frame-blue) 10px
+    );
+    opacity: 0.6;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    border: 2px solid var(--frame-blue);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.shape-1 { width: 120px; height: 120px; top: -30px; left: 80px; }
+.shape-2 { width: 80px; height: 80px; top: 70px; left: 20px; opacity: 0.4; }
+
+/* --- SOCIALS BALK --- */
+.socials-box {
+    position: absolute;
+    top: 150px;
+    left: 0;
+    background-color: var(--socials-green);
+    width: 450px;
+    padding: 15px 30px;
+    z-index: 5;
+}
+
+.socials-box h2 {
+    margin: 0;
+    font-size: 2.2rem;
+    text-decoration: underline;
+}
+
+.socials-box .icons {
+    display: flex;
+    gap: 25px;
+    margin-top: 10px;
+    font-size: 2.5rem;
+}
+
+/* --- PROJECTEN SECTIE (Hoger en meer naar links) --- */
+.projects-wrapper {
+    position: absolute;
+    top: -20px;      /* Hoger dan 0px voor meer ruimte */
+    left:620px;    /* Verder naar links dan 580px voor de "overlap" */
+    width: 680px;
+    height: 480px;
+    /* Geen z-index op de wrapper zelf zodat kinderen vrij kunnen stapelen */
+}
+
+/* De blauwe rand die OVER de foto valt */
+.blue-frame {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    width: 100%;
+    height: 100%;
+    border: 6px solid var(--frame-blue);
+    z-index: 30;     /* HOOGSTE LAAG: over de foto heen */
+    pointer-events: none;
+}
+
+/* De groene kaart die ACHTER de foto valt */
+.projects-card {
+    position: relative;
+    background-color: var(--project-teal);
+    padding: 35px;
+    height: 100%;
+    z-index: 10;     /* LAAGSTE LAAG van de sectie */
+}
+
+.projects-card h2 {
+    text-decoration: underline;
+    font-size: 2.5rem;
+    margin-top: 0;
+}
+
+.projects-grid {
+    display: flex;
+    margin-top: 25px;
+}
+
+.vertical-divider {
+    width: 1px;
+    background-color: rgba(255,255,255,0.4);
+    margin: 0 25px;
+}
+
+.col { flex: 1; }
+.col h3 { font-style: italic; font-size: 1.4rem; margin-bottom: 10px; }
+.col ul { list-style: none; padding: 0; }
+.col li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; }
+
+/* --- ONDERSTE SECTIE (Bio + Foto) --- */
+.bottom-section {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    display: flex;
+    align-items: stretch;
+    z-index: 20;     /* MIDDELSTE LAAG: over het groen, maar onder de blauwe rand */
+}
+
+.bio-text {
+    background-color: var(--bio-gray);
+    width: 380px;
+    padding: 30px;
+}
+
+.bio-text h2 { font-size: 2.2rem; margin: 0; }
+.bio-text hr { border: 1px solid white; margin: 5px 0 20px 0; }
+.bio-text ul { list-style: none; padding: 0; font-size: 1.2rem; line-height: 1.4; }
+
+.bio-photo {
+    width: 380px;
+    height: 440px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bio-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    display: block;
+}
+/* --- AANPASSING VOOR DE LINKJES --- */
+
+.socials-box .icons a {
+    color: white;           /* Zorgt dat de icoontjes wit blijven */
+    text-decoration: none;  /* Haalt de onderstreping weg */
+    transition: transform 0.2s, opacity 0.2s; /* Soepele animatie */
+}
+
+/* Hover effect: als je er met de muis op staat */
+.socials-box .icons a:hover {
+    opacity: 0.7;           /* Iets doorzichtiger */
+    transform: scale(1.1);  /* Icoontje wordt iets groter */
+    cursor: pointer;
+}
+/* --- PROJECT LINKJES STIJL --- */
+
+/* Dit zorgt ervoor dat de link eruit ziet als gewone tekst */
+.projects-grid ul li a {
+    color: white;              /* Witte tekst */
+    text-decoration: none;     /* Geen streep eronder */
+    display: flex;             /* Zorgt dat icoon en tekst naast elkaar staan */
+    align-items: center;       /* Netjes verticaal uitgelijnd */
+    gap: 12px;                 /* Ruimte tussen icoon en tekst */
+    width: 100%;               /* Hele breedte aanklikbaar */
+    transition: all 0.2s ease;
+}
+
+/* Hover effect: als je over een project heen gaat */
+.projects-grid ul li a:hover {
+    color: #cceeff;            /* Lichtblauwe gloed bij hover (optioneel) */
+    transform: translateX(5px);/* Schuift klein stukje naar rechts voor effect */
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
