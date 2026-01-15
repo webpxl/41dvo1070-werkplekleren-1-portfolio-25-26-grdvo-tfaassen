@@ -59,6 +59,12 @@ const projectData = {
         desc: "mijn persoonlijke photoshop bewerkingen.",
         images: ["assets/photoshop_1.png", "assets/photoshop_2.png", "assets/photoshop_3.png", "assets/photoshop_4.png", "assets/photoshop_5.png", "assets/photoshop_6.png"],
         link: "https://faassenteundvoportofolio.netlify.app/"
+    },
+    eindreflectie: {
+        title: "Eindreflectie Werkplekleren",
+        desc: "Mijn eindreflectie over mijn werkplekleren ervaring dit semester.",
+        images: [],
+        link: "assets/Eindreflectie_Werkplekleren_Teun_Faassen.pdf"
     }
 };
 
