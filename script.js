@@ -20,7 +20,7 @@ const projectData = {
     },
     geozoeker: {
         title: "GeoZoekkr",
-        desc: "Mijn GIP project. Een geoguessr kloon. die ik volledig heb gecodeert met python html css en js en gebruik maakt van een database.",
+        desc: "Mijn GIP project. Een geoguessr kloon. die ik volledig heb gecodeerd met python html css en js en gebruik maakt van een database.",
         images: ["assets/geozoekkr_1.png", "assets/geozoekkr_2.png", "assets/geozoekkr_3.png", "assets/geozoekkr_4.png"],
         link: "https://github.com/tfaassen/gip"
     },
@@ -32,25 +32,25 @@ const projectData = {
     },
     dashboardCV: {
         title: "dashboard cv",
-        desc: "een Creatieve cv dashboard gemaakt in figma voor werkplekleren.",
+        desc: "een Creatieve dashboard cv gemaakt in figma voor werkplekleren. ik vond het wel leuk om dit project letterlijk te nemen zoals je kan zien.",
         images: ["assets/dash_1.png", "assets/dash_2.png", "assets/dash_3.png", "assets/dash_4.png", "assets/dash_5.png", "assets/dash_6.png", "assets/dash_7.png", "assets/dash_8.png"],
         link: "https://faassenteundvoportofolio.netlify.app/"
     },
     takeaway: {
         title: "takaway scripting project",
-        desc: "een etens afhaal website gemaakt voor scripting.",
+        desc: "Een etens afhaal website gemaakt voor scripting.",
         images: ["assets/tkw_1.png", "assets/tkw_2.png", "assets/tkw_3.png", "assets/tkw_4.png"],
         link: "https://faassenteundvoportofolio.netlify.app/"
     },
     mijnAuto: {
         title: "mijn auto",
-        desc: "hier zie je de aanpassingen die ik heb gedaan aan mijn auto.",
+        desc: "Hier zie je de aanpassingen die ik heb gedaan aan mijn auto.",
         images: ["assets/bmw_1.png", "assets/bmw_2.jpeg", "assets/bmw_3.jpeg", "assets/bmw_4.jpeg", "assets/bmw_5.jpeg"],
         link: "https://faassenteundvoportofolio.netlify.app/"
     },
     NVA: {
-        title: "NVA",
-        desc: "hier zie je wat ik heb gedaan met de NVA.",
+        title: "N-VA",
+        desc: "Ik ben politiek geëngageerd in mijn woonplaats. Ik ben zelfs opgekomen voor de verkiezingen van 2024 .",
         images: ["assets/NVA_1.png"],
         link: "https://hamont-achel.n-va.be/wie-is-wie/teun-faassen"
     },
