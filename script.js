@@ -116,3 +116,36 @@ function toggleContact(popupId) {
         popup.classList.add('show');
     }
 }
+// --- NAVBAR MOBIEL FUNCTIE ---
+const menu = document.querySelector('#mobile-menu');
+const menuLinks = document.querySelector('.nav-links');
+
+menu.addEventListener('click', function() {
+    menu.classList.toggle('active');
+    menuLinks.classList.toggle('active');
+});
+
+// Sluit menu als je op een link klikt (handig voor mobiel)
+function closeMenu() {
+    menu.classList.remove('active');
+    menuLinks.classList.remove('active');
+}
+
+// --- SOEPEL SCROLLEN ---
+document.querySelectorAll('.nav-links a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+
+        // Alleen scrollen als het een interne link is (begint met .)
+        if (targetId.startsWith('.')) {
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70, // -70 voor de hoogte van de navbar
+                    behavior: 'smooth'
+                });
+            }
+        }
+    });
+});
