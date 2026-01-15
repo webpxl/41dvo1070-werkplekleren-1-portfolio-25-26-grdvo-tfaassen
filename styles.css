@@ -1,185 +1,60 @@
-/* --- CSS VARIABELEN --- */
 :root {
     --bg-black: #000000;
     --socials-green: #144d33;
     --project-teal: #1f8a70;
     --bio-gray: #555555;
     --frame-blue: #2a5a75;
+    --text-white: #ffffff;
     --handwritten: 'Indie Flower', cursive;
 }
 
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     background-color: var(--bg-black);
     margin: 0;
+    font-family: var(--handwritten);
+    color: var(--text-white);
+    overflow-x: hidden; /* Voorkom horizontaal scrollen van de pagina */
+}
+
+/* --- HERO SECTIE (Bovenkant) --- */
+.hero-section {
+    height: 100vh; /* Vult het hele scherm */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    font-family: var(--handwritten);
-    color: white;
-    overflow: hidden;
-}
-
-.canvas {
-    width: 1200px;
-    height: 800px;
     position: relative;
+    padding: 20px;
 }
 
-/* --- DECORATIEVE VORMEN --- */
-.lines {
-    position: absolute;
-    width: 220px;
-    height: 180px;
-    background: repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 10px,
-            var(--project-teal) 10px,
-            var(--project-teal) 13px
-    );
-    z-index: 1;
-}
-
-.top-left { top: 20px; left: 100px; }
-.bottom-right { bottom: 20px; right: 280px; transform: rotate(180deg); }
-
-.mid-right-deco {
-    position: absolute;
-    top: 480px;
-    right: 50px;
-    width: 150px;
-    height: 120px;
-    background: repeating-linear-gradient(
-            -45deg,
-            transparent,
-            transparent 8px,
-            var(--frame-blue) 8px,
-            var(--frame-blue) 10px
-    );
-    opacity: 0.6;
-    z-index: 1;
-}
-
-.circle {
-    position: absolute;
-    border: 2px solid var(--frame-blue);
-    border-radius: 50%;
-    z-index: 1;
-}
-
-.shape-1 { width: 120px; height: 120px; top: -30px; left: 80px; }
-.shape-2 { width: 80px; height: 80px; top: 70px; left: 20px; opacity: 0.4; }
-
-/* --- SOCIALS BALK --- */
-.socials-box {
-    position: absolute;
-    top: 150px;
-    left: 0;
-    background-color: var(--socials-green);
-    width: 450px;
-    padding: 15px 30px;
-    z-index: 5;
-}
-
-.socials-box h2 {
-    margin: 0;
-    font-size: 2.2rem;
-    text-decoration: underline;
-}
-
-.socials-box .icons {
+.hero-content {
     display: flex;
-    gap: 25px;
-    margin-top: 10px;
-    font-size: 2.5rem;
-}
-
-/* --- PROJECTEN SECTIE (Hoger en meer naar links) --- */
-.projects-wrapper {
-    position: absolute;
-    top: -20px;      /* Hoger dan 0px voor meer ruimte */
-    left:620px;    /* Verder naar links dan 580px voor de "overlap" */
-    width: 680px;
-    height: 480px;
-    /* Geen z-index op de wrapper zelf zodat kinderen vrij kunnen stapelen */
-}
-
-/* De blauwe rand die OVER de foto valt */
-.blue-frame {
-    position: absolute;
-    top: -20px;
-    left: -20px;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
     width: 100%;
-    height: 100%;
-    border: 6px solid var(--frame-blue);
-    z-index: 30;     /* HOOGSTE LAAG: over de foto heen */
-    pointer-events: none;
 }
 
-/* De groene kaart die ACHTER de foto valt */
-.projects-card {
-    position: relative;
-    background-color: var(--project-teal);
-    padding: 35px;
-    height: 100%;
-    z-index: 10;     /* LAAGSTE LAAG van de sectie */
+.hero-card {
+    padding: 20px;
+    flex: 1;
 }
 
-.projects-card h2 {
-    text-decoration: underline;
-    font-size: 2.5rem;
-    margin-top: 0;
-}
-
-.projects-grid {
+/* De Profielfoto Kaart */
+.photo-card {
     display: flex;
-    margin-top: 25px;
+    justify-content: flex-end;
 }
-
-.vertical-divider {
-    width: 1px;
-    background-color: rgba(255,255,255,0.4);
-    margin: 0 25px;
-}
-
-.col { flex: 1; }
-.col h3 { font-style: italic; font-size: 1.4rem; margin-bottom: 10px; }
-.col ul { list-style: none; padding: 0; }
-.col li { margin-bottom: 15px; display: flex; align-items: center; gap: 12px; font-size: 1.1rem; }
-
-/* --- ONDERSTE SECTIE (Bio + Foto) --- */
-.bottom-section {
-    position: absolute;
-    bottom: 50px;
-    left: 0;
-    display: flex;
-    align-items: stretch;
-    z-index: 20;     /* MIDDELSTE LAAG: over het groen, maar onder de blauwe rand */
-}
-
-.bio-text {
-    background-color: var(--bio-gray);
-    width: 380px;
-    padding: 30px;
-}
-
-.bio-text h2 { font-size: 2.2rem; margin: 0; }
-.bio-text hr { border: 1px solid white; margin: 5px 0 20px 0; }
-.bio-text ul { list-style: none; padding: 0; font-size: 1.2rem; line-height: 1.4; }
 
 .bio-photo {
-    width: 380px;
-    height: 440px;
+    width: 350px;
+    height: 450px;
     background-color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border: 5px solid var(--frame-blue);
     overflow: hidden;
+    position: relative;
 }
 
 .bio-photo img {
@@ -187,38 +62,193 @@ body {
     height: 100%;
     object-fit: cover;
     filter: grayscale(100%);
-    display: block;
-}
-/* --- AANPASSING VOOR DE LINKJES --- */
-
-.socials-box .icons a {
-    color: white;           /* Zorgt dat de icoontjes wit blijven */
-    text-decoration: none;  /* Haalt de onderstreping weg */
-    transition: transform 0.2s, opacity 0.2s; /* Soepele animatie */
 }
 
-/* Hover effect: als je er met de muis op staat */
-.socials-box .icons a:hover {
-    opacity: 0.7;           /* Iets doorzichtiger */
-    transform: scale(1.1);  /* Icoontje wordt iets groter */
+/* De Tekst Kaart */
+.bio-card {
+    background-color: var(--bio-gray);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px var(--project-teal);
+}
+
+.bio-card h2 { margin-top: 0; font-size: 2.5rem; text-decoration: underline; }
+
+/* ANIMATIES: Binnenvliegen */
+.slide-in-left { animation: slideLeft 1.5s ease-out forwards; opacity: 0; transform: translateX(-100vw); }
+.slide-in-right { animation: slideRight 1.5s ease-out forwards; opacity: 0; transform: translateX(100vw); }
+
+@keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
+@keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    animation: bounce 2s infinite;
+}
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 40% {transform: translateY(-10px);} 60% {transform: translateY(-5px);} }
+
+/* --- PROJECTEN CARROUSEL --- */
+.projects-section {
+    padding: 60px 20px;
+    background-color: #0a0a0a;
+    text-align: center;
+}
+
+.projects-section h2 { font-size: 3rem; margin-bottom: 40px; color: var(--project-teal); text-decoration: underline; }
+
+.carousel-wrapper {
+    max-width: 1000px;
+    margin: 0 auto 60px auto;
+    position: relative;
+    padding: 0 50px; /* Ruimte voor pijltjes */
+}
+
+.carousel-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 0;
+    scrollbar-width: none; /* Firefox scrollbar weg */
+}
+.carousel-container::-webkit-scrollbar { display: none; } /* Chrome scrollbar weg */
+
+.project-card {
+    background-color: var(--project-teal);
+    min-width: 250px;
+    height: 300px;
+    padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-card:hover { transform: scale(1.05); background-color: var(--socials-green); }
+.card-image { font-size: 4rem; margin-bottom: 15px; }
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    font-family: var(--handwritten);
+}
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* --- VRIJE TIJD --- */
+.hobbies-section {
+    padding: 60px 20px;
+    background-color: var(--bio-gray);
+    text-align: center;
+}
+.hobby-list { list-style: none; padding: 0; font-size: 1.5rem; display: flex; justify-content: center; gap: 40px; }
+
+/* --- SOCIALS FOOTER --- */
+.socials-footer {
+    padding: 40px;
+    background-color: var(--socials-green);
+    text-align: center;
+}
+.footer-icons { font-size: 3rem; margin-top: 20px; display: flex; justify-content: center; gap: 30px; }
+.footer-icons a { color: white; transition: 0.3s; }
+.footer-icons a:hover { transform: scale(1.2); }
+
+/* --- MODAL (POP-UP) --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center; align-items: center;
+}
+.modal-content {
+    background-color: var(--project-teal);
+    padding: 40px;
+    width: 80%;
+    max-width: 800px;
+    border: 4px solid white;
+    position: relative;
+    text-align: center;
+}
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 3rem;
     cursor: pointer;
 }
-/* --- PROJECT LINKJES STIJL --- */
+.modal-gallery {
+    display: flex; gap: 10px; overflow-x: auto; margin: 20px 0; height: 200px;
+}
+.gallery-img { height: 100%; border: 2px solid white; }
+.project-link-btn {
+    background: white; color: var(--project-teal); padding: 10px 20px;
+    text-decoration: none; font-weight: bold; border-radius: 5px;
+}
+/* --- CONTACT POPUP STIJL --- */
 
-/* Dit zorgt ervoor dat de link eruit ziet als gewone tekst */
-.projects-grid ul li a {
-    color: white;              /* Witte tekst */
-    text-decoration: none;     /* Geen streep eronder */
-    display: flex;             /* Zorgt dat icoon en tekst naast elkaar staan */
-    align-items: center;       /* Netjes verticaal uitgelijnd */
-    gap: 12px;                 /* Ruimte tussen icoon en tekst */
-    width: 100%;               /* Hele breedte aanklikbaar */
-    transition: all 0.2s ease;
+/* Zorg dat de divjes zich gedragen als de linkjes (naast elkaar, wit, pointer) */
+.contact-item {
+    color: white;
+    cursor: pointer;
+    position: relative; /* Nodig om de popup te kunnen plaatsen */
+    display: inline-block;
+    transition: 0.3s;
 }
 
-/* Hover effect: als je over een project heen gaat */
-.projects-grid ul li a:hover {
-    color: #cceeff;            /* Lichtblauwe gloed bij hover (optioneel) */
-    transform: translateX(5px);/* Schuift klein stukje naar rechts voor effect */
-    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+.contact-item:hover {
+    transform: scale(1.2);
+}
+
+/* De stijl van het "vakje" dat tevoorschijn komt */
+.contact-popup {
+    visibility: hidden; /* Standaard onzichtbaar */
+    opacity: 0;
+    width: max-content; /* Past breedte aan op de tekst */
+    background-color: var(--project-teal);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 12px;
+    border: 2px solid white;
+    font-size: 1.2rem;
+    font-family: var(--handwritten);
+
+    /* Positie: Boven het icoontje */
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%); /* Zorgt dat het netjes in het midden staat */
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+/* Pijltje aan de onderkant van het vakje (voor de sier) */
+.contact-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--project-teal) transparent transparent transparent;
+}
+
+/* Klasse die we met Javascript toevoegen om het zichtbaar te maken */
+.contact-popup.show {
+    visibility: visible;
+    opacity: 1;
 }

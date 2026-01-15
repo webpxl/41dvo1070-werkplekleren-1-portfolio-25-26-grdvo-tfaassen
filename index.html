@@ -2,96 +2,157 @@
 <html lang="nl">
 <head>
     <meta charset="UTF-8">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teun Faassen Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
 
-<div class="canvas">
-    <div class="circle shape-1"></div>
-    <div class="circle shape-2"></div>
-    <div class="lines top-left"></div>
-    <div class="lines mid-right"></div>
-    <div class="socials-box">
-        <h2>SOCIALS</h2>
-        <div class="icons">
-            <a href="https://github.com/tfaassen" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
+<header class="hero-section">
+    <div class="hero-content">
+        <div class="hero-card photo-card slide-in-left">
+            <div class="bio-photo">
+                <img src="assets/Schermafbeelding%202025-12-19%20104613-1.png" alt="Teun Faassen">
 
-            <a href="https://www.instagram.com/teunfaassen/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-
-            <a href="https://www.facebook.com/teun.faassen.5" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-facebook"></i>
-            </a>
-        </div>
-    </div>
-
-
-    <div class="projects-wrapper">
-        <div class="blue-frame"></div>
-        <div class="projects-card">
-            <h2>MIJN PROJECTEN</h2>
-            <div class="projects-grid">
-                <div class="col">
-                    <h3>SCHOOL projecten</h3>
-                    <ul>
-                        <li>
-                            <a href="https://teunfaassen.provil-ion.be/" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-globe"></i> MOD THE WORLD
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/webpxl/41dvo1070-werkplekleren-1-portfolio-25-26-grdvo-tfaassen" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> portfolio project
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/tfaassen/gip" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github"></i> GEOZOEKkR
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="vertical-divider"></div>
-
-                <div class="col">
-                    <h3>vrije tijds projecten</h3>
-                    <ul>
-                        <li>
-                            <a href="https://www.gran-turismo.com/us/gt7/user/mymenu/e55128b0-5a90-4a7a-aa37-1522fbefe3ce/profile" target="_blank" rel="noopener noreferrer">
-                                <i class="fas fa-gamepad"></i> GRAN TURISMO LIVERY EDITOR
-                            </a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </div>
-    </div>
 
-    <div class="bottom-section">
-        <div class="bio-text">
-            <h2>wie ben ik ?</h2>
+        <div class="hero-card bio-card slide-in-right">
+            <h2>Wie ben ik?</h2>
             <hr>
-            <ul>
-                <li>korte uitleg over wie ik ben</li>
-                <li>wat maak mij speciaal</li>
-                <li>waarom heb ik voor digitale vormgeving gekozen als richting gekozen</li>
-                <li>waarom ben ik een goede designer/programeur</li>
-            </ul>
-        </div>
-        <div class="bio-photo">
-            <img src="Schermafbeelding 2025-12-19 104613-1.png" alt="Profielfoto">
+            <p>ik ben Teun Faassen een autofanaat die zich bezig houd met coderen.</p>
+            <p>ik studeer digitale vormgeving omdat ik in het middelbaar informaticabeheer al heb afgerond en hier in verder wil leren</p>
+            <p>ik ben goed in programeren en disignen omdat ik mij hier al heel mijn schoolgang mee bezig houd</p>
         </div>
     </div>
+    <div class="scroll-indicator">
+        <p>Scroll voor projecten</p>
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</header>
 
-    <div class="lines bottom-right"></div>
+<section class="projects-section">
+    <h2>MIJN PROJECTEN</h2>
+
+    <div class="carousel-wrapper">
+        <h3>School Projecten</h3>
+        <button class="nav-btn prev-btn" onclick="scrollCarousel('school-carousel', -300)">&#10094;</button>
+
+        <div class="carousel-container" id="school-carousel">
+            <div class="project-card" onclick="openModal('modtheworld')">
+                <div class="card-image"><i class="fas fa-globe"></i></div> <h4>Mod The World</h4>
+                <p>Klik voor meer info...</p>
+            </div>
+            <div class="project-card" onclick="openModal('portfolio')">
+                <div class="card-image"><i class="fab fa-github"></i></div>
+                <h4>Portfolio Project</h4>
+                <p>Mijn eigen website.</p>
+            </div>
+            <div class="project-card" onclick="openModal('geozoeker')">
+                <div class="card-image"><i class="fas fa-map-marker-alt"></i></div>
+                <h4>GeoZoekkr</h4>
+                <p>GIP Project.</p>
+            </div>
+            <div class="project-card" onclick="openModal('dashboardCV')">
+                <div class="card-image"><i class="fa-solid fa-gauge"></i></div>
+                <h4>dashboard cv</h4>
+                <p>creatieve cv website</p>
+            </div>
+            <div class="project-card" onclick="openModal('takeaway')">
+                <div class="card-image"><i class="fa-solid fa-utensils"></i></div>
+                <h4>takeaway</h4>
+                <p>takaway site gemaakt voor scripting</p>
+            </div>
+        </div>
+
+        <button class="nav-btn next-btn" onclick="scrollCarousel('school-carousel', 300)">&#10095;</button>
+    </div>
+
+    <div class="carousel-wrapper">
+        <h3>Vrije Tijd Projecten</h3>
+        <button class="nav-btn prev-btn" onclick="scrollCarousel('personal-carousel', -300)">&#10094;</button>
+
+        <div class="carousel-container" id="personal-carousel">
+            <div class="project-card" onclick="openModal('granturismo')">
+                <div class="card-image"><i class="fas fa-gamepad"></i></div>
+                <h4>GT Livery Editor</h4>
+                <p>Creatieve designs in Gran Turismo.</p>
+            </div>
+
+
+        <div class="project-card" onclick="openModal('mijnAuto')">
+                <div class="card-image"><i class="fa-solid fa-car"></i></div>
+                <h4>mijn auto</h4>
+                <p>eigen aanpassingen aan mijn auto</p>
+            </div>
+
+
+            <div class="project-card" onclick="openModal('NVA')">
+                <div class="card-image"><i class="fa-solid fa-landmark"></i></div>
+                <h4>NVA</h4>
+                <p>opkomen voor de nva tijdens de verkiezingen</p>
+            </div>
+            <div class="project-card" onclick="openModal('photoshop')">
+                <div class="card-image"><i class="fa-notdog fa-solid fa-camera"></i></div>
+                <h4>photoshop</h4>
+                <p>eigen photoshop projecten</p>
+            </div>
+        </div>
+
+        <button class="nav-btn next-btn" onclick="scrollCarousel('personal-carousel', 300)">&#10095;</button>
+    </div>
+</section>
+
+<section class="hobbies-section">
+    <div class="hobbies-content">
+        <h2>VRIJE TIJD</h2>
+        <p>in mijn vrije tijd hou ik mij bezig met auto's game ik s'avonds. ik teken soms ook auto's en mijn sporten zijn veldhockey en fitness</p>
+        <ul class="hobby-list">
+            <li><i class="fas fa-gamepad"></i> Gamen</li>
+            <li><i class="fas fa-paint-brush"></i> Ontwerpen</li>
+            <li><i class="fas fa-music"></i> Muziek luisteren</li>
+            <li><i class="fa-solid fa-wrench"></i> Auto's sleutelen</li>
+            <li><i class="fa-solid fa-medal"></i> hockey spelen</li>
+            <li><i class="fa-solid fa-dumbbell"></i> fitness</li>
+        </ul>
+    </div>
+</section>
+
+<footer class="socials-footer">
+    <h2>CONTACT & SOCIALS</h2>
+    <div class="footer-icons">
+
+        <a href="https://github.com/tfaassen" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/teunfaassen/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/teun.faassen.5" target="_blank"><i class="fab fa-facebook"></i></a>
+
+        <div class="contact-item" onclick="toggleContact('phone-popup')">
+            <i class="fas fa-phone"></i>
+            <span id="phone-popup" class="contact-popup">+32 478 07 91 33</span>
+        </div>
+
+        <div class="contact-item" onclick="toggleContact('mail-popup')">
+            <i class="fas fa-envelope"></i>
+            <span id="mail-popup" class="contact-popup">teun@faassen.be</span>
+        </div>
+
+    </div>
+</footer>
+
+<div id="project-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title">Project Titel</h2>
+        <p id="modal-desc">Project beschrijving...</p>
+        <div class="modal-gallery" id="modal-gallery">
+        </div>
+        <a id="modal-link" href="#" target="_blank" class="project-link-btn">Bekijk Project <i class="fas fa-external-link-alt"></i></a>
+    </div>
 </div>
+
 
 </body>
 </html>
