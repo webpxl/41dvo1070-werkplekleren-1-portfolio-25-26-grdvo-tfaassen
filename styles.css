@@ -18,7 +18,11 @@ body {
     margin: 0;
     font-family: var(--handwritten);
     color: var(--text-white);
-    overflow-x: hidden; /* Voorkom horizontaal scrollen van de pagina */
+    overflow-x: hidden;
+    /* Centrerings-fix */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* --- ALGEMENE LINK STIJLEN --- */
@@ -27,442 +31,6 @@ a {
     color: white;
 }
 
-/* --- HERO SECTIE (Bovenkant) --- */
-.hero-section {
-    min-height: 100vh; /* Minimaal het hele scherm */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    padding: 20px;
-}
-
-.hero-content {
-    display: flex;
-    gap: 50px;
-    align-items: center;
-    max-width: 1200px;
-    width: 100%;
-}
-
-.hero-card {
-    padding: 20px;
-    flex: 1;
-}
-
-/* De Profielfoto Kaart */
-.photo-card {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.bio-photo {
-    width: 350px;
-    height: 450px;
-    background-color: #333;
-    border: 5px solid var(--frame-blue);
-    overflow: hidden;
-    position: relative;
-    box-shadow: -10px 10px 0px rgba(42, 90, 117, 0.3);
-}
-
-.bio-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: grayscale(100%);
-}
-
-/* De Tekst Kaart */
-.bio-card {
-    background-color: var(--bio-gray);
-    padding: 40px;
-    border-radius: 5px;
-    box-shadow: 10px 10px 0px var(--project-teal);
-}
-
-.bio-card h2 {
-    margin-top: 0;
-    font-size: 2.5rem;
-    text-decoration: underline;
-}
-
-.bio-card p {
-    font-size: 1.2rem;
-    line-height: 1.5;
-}
-
-/* ANIMATIES: Binnenvliegen */
-.slide-in-left {
-    animation: slideLeft 1.5s ease-out forwards;
-    opacity: 0;
-    transform: translateX(-100vw);
-}
-
-.slide-in-right {
-    animation: slideRight 1.5s ease-out forwards;
-    opacity: 0;
-    transform: translateX(100vw);
-}
-
-@keyframes slideLeft { to { opacity: 1; transform: translateX(0); } }
-@keyframes slideRight { to { opacity: 1; transform: translateX(0); } }
-
-/* Scroll pijltje */
-.scroll-indicator {
-    position: absolute;
-    bottom: 30px;
-    text-align: center;
-    animation: bounce 2s infinite;
-    cursor: pointer;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
-}
-
-/* --- PROJECTEN CARROUSEL --- */
-.projects-section {
-    padding: 60px 20px;
-    background-color: #0a0a0a;
-    text-align: center;
-}
-
-.projects-section h2 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    color: var(--project-teal);
-    text-decoration: underline;
-}
-
-.carousel-wrapper {
-    max-width: 1000px;
-    margin: 0 auto 60px auto;
-    position: relative;
-    padding: 0 50px; /* Ruimte voor pijltjes */
-}
-
-.carousel-wrapper h3 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: left;
-    padding-left: 20px;
-}
-
-.carousel-container {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 20px 5px;
-    scrollbar-width: none; /* Firefox scrollbar weg */
-}
-.carousel-container::-webkit-scrollbar { display: none; } /* Chrome scrollbar weg */
-
-.project-card {
-    background-color: var(--project-teal);
-    min-width: 250px;
-    height: 300px;
-    padding: 20px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    border: 2px solid white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.project-card:hover {
-    transform: scale(1.05);
-    background-color: var(--socials-green);
-    box-shadow: 0 0 15px rgba(31, 138, 112, 0.6);
-}
-
-.card-image {
-    font-size: 4rem;
-    margin-bottom: 15px;
-}
-
-.nav-btn {
-    position: absolute;
-    top: 60%; /* Iets lager dan midden vanwege titel */
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    color: white;
-    font-size: 3rem;
-    cursor: pointer;
-    font-family: var(--handwritten);
-    z-index: 10;
-}
-.prev-btn { left: 0; }
-.next-btn { right: 0; }
-
-/* --- VRIJE TIJD --- */
-.hobbies-section {
-    padding: 60px 20px;
-    background-color: var(--bio-gray);
-    text-align: center;
-}
-
-.hobby-list {
-    list-style: none;
-    padding: 0;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.hobby-list li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* --- SOCIALS FOOTER & CONTACT POPUPS --- */
-.socials-footer {
-    padding: 40px;
-    background-color: var(--socials-green);
-    text-align: center;
-    position: relative;
-}
-
-.footer-icons {
-    font-size: 3rem;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    align-items: center;
-}
-
-.footer-icons a,
-.contact-item {
-    color: white;
-    transition: 0.3s;
-    cursor: pointer;
-    position: relative;
-}
-
-.footer-icons a:hover,
-.contact-item:hover {
-    transform: scale(1.2);
-}
-
-/* Contact Popup Styling */
-.contact-popup {
-    visibility: hidden;
-    opacity: 0;
-    width: max-content;
-    background-color: var(--project-teal);
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    padding: 10px 15px;
-    border: 2px solid white;
-    font-size: 1.2rem;
-    font-family: var(--handwritten);
-
-    /* Positie */
-    position: absolute;
-    bottom: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    transition: opacity 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
-
-.contact-popup::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -8px;
-    border-width: 8px;
-    border-style: solid;
-    border-color: var(--project-teal) transparent transparent transparent;
-}
-
-.contact-popup.show {
-    visibility: visible;
-    opacity: 1;
-}
-
-/* --- MODAL (POP-UP) VOOR PROJECTEN --- */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 100;
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.modal-content {
-    background-color: var(--project-teal);
-    padding: 40px;
-    width: 95%;             /* Lekker breed */
-    max-width: 1100px;      /* Maximaal 1100px breed */
-    max-height: 90vh;       /* Maximaal 90% van de schermhoogte */
-    overflow-y: auto;       /* Scrollbalk als het te hoog is */
-    border: 4px solid white;
-    position: relative;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-}
-
-.close-btn {
-    position: absolute;
-    top: 10px; right: 20px;
-    font-size: 3rem;
-    cursor: pointer;
-    color: white;
-    transition: 0.2s;
-}
-.close-btn:hover { color: #ccc; }
-
-.modal-gallery {
-    display: flex;
-    gap: 15px;
-    overflow-x: auto;
-    margin: 30px 0;
-    height: 450px;          /* Grote hoogte voor foto's */
-    flex-shrink: 0;
-
-    /* Scrollbalk styling */
-    scrollbar-width: thin;
-    scrollbar-color: white var(--project-teal);
-}
-
-.gallery-img {
-    height: 100%;           /* Vult de hoogte van de gallery */
-    width: auto;
-    border: 2px solid white;
-    object-fit: contain;    /* Zorgt dat de hele foto zichtbaar is */
-    background-color: rgba(0,0,0,0.2);
-}
-
-.project-link-btn {
-    background: white;
-    color: var(--project-teal);
-    padding: 12px 25px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    align-self: center;
-    transition: 0.2s;
-}
-.project-link-btn:hover {
-    background: #eee;
-    transform: scale(1.05);
-}
-
-
-/* --- RESPONSIVE DESIGN (MEDIA QUERIES) --- */
-
-/* Tablet en kleiner (max 1024px) */
-@media (max-width: 1024px) {
-    .hero-content {
-        gap: 30px;
-        width: 95%;
-    }
-
-    .bio-photo {
-        width: 300px;
-        height: 400px;
-    }
-}
-
-/* Mobiele telefoons (max 768px) */
-@media (max-width: 768px) {
-
-    /* Hero Sectie onder elkaar */
-    .hero-section {
-        height: auto;
-        padding-top: 50px;
-        padding-bottom: 50px;
-    }
-
-    .hero-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .photo-card {
-        justify-content: center;
-        width: 100%;
-    }
-
-    .bio-photo {
-        width: 280px;
-        height: 350px;
-        margin: 0 auto;
-    }
-
-    .bio-card {
-        width: 100%;
-        padding: 25px;
-    }
-
-    /* Animaties simpeler op mobiel */
-    .slide-in-left { animation: fadeIn 1.5s ease-out forwards; transform: none; }
-    .slide-in-right { animation: fadeIn 1.5s ease-out forwards; transform: none; }
-
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Carrousel */
-    .nav-btn { display: none; } /* Geen pijltjes, gewoon swipen */
-    .carousel-container { padding-left: 20px; }
-    .projects-section h2 { font-size: 2rem; }
-
-    /* Hobbies onder elkaar */
-    .hobby-list {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    /* Modal op mobiel */
-    .modal-content {
-        width: 98%;
-        padding: 20px;
-        max-height: 95vh;
-    }
-
-    .modal-gallery {
-        height: 300px; /* Iets kleiner op mobiel, maar nog steeds groot */
-    }
-
-    .close-btn {
-        font-size: 2rem;
-        top: 5px;
-        right: 10px;
-    }
-
-    /* Contact Popup op mobiel */
-    .contact-popup {
-        font-size: 1rem;
-        width: 200px;
-        white-space: normal;
-        bottom: 140%; /* Iets hoger plaatsen */
-    }
-}
 /* --- NAVBAR STIJLING --- */
 .navbar {
     background-color: rgba(0, 0, 0, 0.9);
@@ -470,7 +38,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Blijft bovenin staan tijdens scrollen */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -511,23 +79,397 @@ a {
     color: var(--project-teal);
 }
 
-/* --- MOBIEL MENU (HAMBURGER) --- */
-.menu-toggle {
-    display: none; /* Verberg op desktop */
+/* --- HERO SECTIE --- */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 100px 20px 40px 20px;
+    width: 100%;
+}
+
+.hero-content {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.hero-card {
+    padding: 20px;
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-card {
+    justify-content: center;
+}
+
+.bio-photo {
+    width: 100%;
+    max-width: 350px;
+    height: 450px;
+    background-color: #333;
+    border: 5px solid var(--frame-blue);
+    overflow: hidden;
+    position: relative;
+    box-shadow: -10px 10px 0px rgba(42, 90, 117, 0.3);
+}
+
+.bio-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.bio-card {
+    background-color: var(--bio-gray);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px var(--project-teal);
+    width: 100%;
+    max-width: 550px;
+}
+
+.bio-card h2 {
+    margin-top: 0;
+    font-size: 2.5rem;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.bio-card p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+/* --- ANIMATIES --- */
+.slide-in-left {
+    animation: slideLeft 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+.slide-in-right {
+    animation: slideRight 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideLeft {
+    from { transform: translateX(-100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideRight {
+    from { transform: translateX(100px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    text-align: center;
+    animation: bounce 2s infinite;
     cursor: pointer;
 }
 
-.menu-toggle .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-    transition: 0.4s;
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
 }
 
-/* Responsieve Navbar (Mobiel) */
+/* --- PROJECTEN SECTIE --- */
+.projects-section {
+    padding: 80px 20px;
+    background-color: #0a0a0a;
+    text-align: center;
+    width: 100%;
+}
+
+.projects-section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: var(--project-teal);
+    text-decoration: underline;
+}
+
+.carousel-wrapper {
+    max-width: 1100px;
+    margin: 0 auto 80px auto;
+    position: relative;
+    padding: 0 60px;
+}
+
+.carousel-wrapper h3 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.carousel-container {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 5px;
+    scrollbar-width: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+
+.project-card {
+    background-color: var(--project-teal);
+    min-width: 280px;
+    height: 320px;
+    padding: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background-color: var(--socials-green);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.card-image {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+/* --- VERVOLG PROJECTEN: NAVIGATIE --- */
+.nav-btn {
+    position: absolute;
+    top: 60%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    font-family: var(--handwritten);
+    z-index: 10;
+    transition: color 0.3s;
+}
+.nav-btn:hover { color: var(--project-teal); }
+.prev-btn { left: 0; }
+.next-btn { right: 0; }
+
+/* --- VRIJE TIJD SECTIE --- */
+.hobbies-section {
+    padding: 80px 20px;
+    background-color: var(--bio-gray);
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.hobbies-content {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.hobbies-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.hobby-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.hobby-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* --- SOCIALS FOOTER & CONTACT POPUPS --- */
+.socials-footer {
+    padding: 60px 40px;
+    background-color: var(--socials-green);
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.footer-icons {
+    font-size: 3rem;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-icons a,
+.contact-item {
+    color: white;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.footer-icons a:hover,
+.contact-item:hover {
+    transform: scale(1.2);
+}
+
+/* Contact Popup Styling */
+.contact-popup {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: var(--project-teal);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: 2px solid white;
+    font-size: 1.2rem;
+    font-family: var(--handwritten);
+
+    /* Positie */
+    position: absolute;
+    bottom: 140%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    transition: opacity 0.3s ease, visibility 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.contact-popup::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--project-teal) transparent transparent transparent;
+}
+
+.contact-popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- MODAL (POP-UP) VOOR PROJECTEN --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background-color: var(--project-teal);
+    padding: 40px;
+    width: 95%;
+    max-width: 1100px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 4px solid white;
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 30px rgba(0,0,0,0.8);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px; right: 20px;
+    font-size: 3rem;
+    cursor: pointer;
+    color: white;
+    transition: 0.2s;
+    z-index: 10;
+}
+.close-btn:hover { color: #ccc; }
+
+.modal-gallery {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    margin: 30px 0;
+    height: 450px;
+    flex-shrink: 0;
+    scrollbar-width: thin;
+    scrollbar-color: white var(--project-teal);
+}
+
+.gallery-img {
+    height: 100%;
+    width: auto;
+    border: 2px solid white;
+    object-fit: contain;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.project-link-btn {
+    background: white;
+    color: var(--project-teal);
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    align-self: center;
+    transition: 0.2s;
+}
+.project-link-btn:hover {
+    background: #eee;
+    transform: scale(1.05);
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+@media (max-width: 1024px) {
+    .hero-content {
+        gap: 30px;
+        width: 95%;
+    }
+    .bio-photo {
+        width: 300px;
+        height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
+    /* Navbar Mobiel */
     .menu-toggle {
         display: flex;
         z-index: 1001;
@@ -535,7 +477,7 @@ a {
 
     .nav-links {
         position: fixed;
-        right: -100%; /* Start buiten beeld */
+        right: -100%;
         top: 70px;
         flex-direction: column;
         background-color: rgba(0, 0, 0, 0.95);
@@ -547,15 +489,91 @@ a {
     }
 
     .nav-links.active {
-        right: 0; /* Komt in beeld */
+        right: 0;
     }
 
     .nav-links li {
         margin: 20px 0;
     }
 
-    /* Hamburger naar X animatie */
-    .menu-toggle.active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
-    .menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+    /* Hero Mobiel */
+    .hero-section {
+        height: auto;
+        padding-top: 120px;
+        padding-bottom: 50px;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo-card {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .bio-photo {
+        width: 280px;
+        height: 350px;
+        margin: 0 auto;
+    }
+
+    .bio-card {
+        width: 100%;
+        padding: 25px;
+    }
+
+    /* Animaties simpeler op mobiel */
+    .slide-in-left, .slide-in-right {
+        animation: fadeIn 1.5s ease-out forwards;
+        transform: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Carrousel Mobiel */
+    .nav-btn { display: block; }
+    .carousel-container { padding-left: 20px; }
+    .projects-section h2 { font-size: 2.2rem; }
+    .carousel-wrapper { padding: 0 10px; }
+
+    /* Hobbies Mobiel */
+    .hobby-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Modal Mobiel */
+    .modal-content {
+        width: 98%;
+        padding: 20px;
+        max-height: 95vh;
+    }
+
+    .modal-gallery {
+        height: 300px;
+    }
+
+    .close-btn {
+        font-size: 2.5rem;
+        top: 5px;
+        right: 15px;
+    }
+}
+
+/* Hamburger naar X animatie */
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(1) { transform: translateY(11px) rotate(45deg); }
+.menu-toggle.active .bar:nth-child(3) { transform: translateY(-11px) rotate(-45deg); }
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
 }
